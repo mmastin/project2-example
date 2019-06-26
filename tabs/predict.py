@@ -126,7 +126,7 @@ def predict(Service, Production, Unemployment, MeanCommute, Poverty, Professiona
     )
 
     pipeline = load('model/pipeline.joblib')
-    y_pred = pipeline.predict(df)
+    y_pred = pipeline.predict(df)[0]
 
 
     return f'Median Income for Census Tract: ${y_pred:.2f}'
