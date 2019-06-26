@@ -8,18 +8,18 @@ import pandas as pd
 
 from app import app
 
-loan_purposes = ['Business',
-                 'Car financing',
-                 'Credit card refinancing',
-                 'Debt consolidation',
-                 'Green loan',
-                 'Home buying',
-                 'Home improvement',
-                 'Major purchase',
-                 'Medical expenses',
-                 'Moving and relocation',
-                 'Other',
-                 'Vacation']
+# loan_purposes = ['Business',
+#                  'Car financing',
+#                  'Credit card refinancing',
+#                  'Debt consolidation',
+#                  'Green loan',
+#                  'Home buying',
+#                  'Home improvement',
+#                  'Major purchase',
+#                  'Medical expenses',
+#                  'Moving and relocation',
+#                  'Other',
+#                  'Vacation']
 
 style = {'padding': '1.5em'}
 
@@ -27,67 +27,82 @@ layout = html.Div([
     dcc.Markdown("""
         ### Predict
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Median Income of an Area with Six Factors. 
     
     """), 
 
     html.Div([
-        dcc.Markdown('###### Annual Income'), 
+        dcc.Markdown('###### Unemployment Rate'), 
         dcc.Slider(
-            id='annual-income', 
-            min=20000,
-            max=200000,
-            step=5000,
-            value=65000, 
-            marks={n: f'{n/1000:.0f}k' for n in range(20000,220000,20000)} 
+            id='Unemployment', 
+            min=0,
+            max=60,
+            step=5,
+            value=5, 
+            marks={n: str(n) for n in range(0,60,5)}
         ), 
     ], style=style), 
 
     html.Div([
-        dcc.Markdown('###### Credit Score'), 
+        dcc.Markdown('###### Poverty Rate'), 
         dcc.Slider(
-            id='credit-score', 
-            min=650,
-            max=850, 
-            step=10, 
-            value=700, 
-            marks={n: str(n) for n in range(650,900,50)}
+            id='Poverty', 
+            min=0,
+            max=25, 
+            step=5, 
+            value=5, 
+            marks={n: str(n) for n in range(0,25,5)}
         ),
     ], style=style), 
 
     html.Div([
-        dcc.Markdown('###### Loan Amount'), 
+        dcc.Markdown('###### Mean Commute in Minutes'), 
         dcc.Slider(
-            id='loan-amount', 
-            min=1000, 
-            max=40000, 
-            step=1000, 
-            value=10000, 
-            marks={n: f'{n/1000:.0f}k' for n in range(5000,45000,5000)}
+            id='MeanCommute', 
+            min=4, 
+            max=72, 
+            step=8, 
+            value=20, 
+            marks={n: str(n) for n in range(4,72,8)}
         ),  
     ], style=style),
 
     html.Div([
-        dcc.Markdown('###### Loan Purpose'), 
-        dcc.Dropdown(
-            id='loan-purpose', 
-            options=[{'label': purpose, 'value': purpose} for purpose in loan_purposes], 
-            value=loan_purposes[0]
-        ), 
-    ], style=style),
-
-    html.Div([
-        dcc.Markdown('###### Monthly Debts'), 
+        dcc.Markdown('###### Professional Employment Rate'), 
         dcc.Slider(
-            id='monthly-debts', 
+            id='Professional', 
             min=0, 
-            max=5000, 
-            step=100, 
-            value=1000, 
-            marks={n: str(n) for n in range(500,5500,500)}
+            max=90, 
+            step=10, 
+            value=30, 
+            marks={n: str(n) for n in range(0,90,10)}
         )
     ], style=style),
 
+    html.Div([
+        dcc.Markdown('###### Services Employment Rate'), 
+        dcc.Slider(
+            id='Service', 
+            min=0, 
+            max=70, 
+            step=10, 
+            value=20, 
+            marks={n: str(n) for n in range(0,70,10)}
+        )
+    ], style=style),
+  
+    html.Div([
+        dcc.Markdown('###### Production Employment Rate'), 
+        dcc.Slider(
+            id='Production', 
+            min=0, 
+            max=60, 
+            step=10, 
+            value=10, 
+            marks={n: str(n) for n in range(0,60,10)}
+        )
+    ], style=style),
+  
     dcc.Markdown('### Prediction'), 
     html.Div(id='prediction-content', style={'marginBottom': '5em'}), 
 
@@ -95,20 +110,21 @@ layout = html.Div([
 
 @app.callback(
     Output('prediction-content', 'children'),
-    [Input('annual-income', 'value'),
-     Input('credit-score', 'value'),
-     Input('loan-amount', 'value'),
-     Input('loan-purpose', 'value'),
-     Input('monthly-debts', 'value')])
-def predict(annual_income, credit_score, loan_amount, loan_purpose, monthly_debts):
+    [Input('Unemployment', 'value'),
+     Input('Poverty', 'value'),
+     Input('MeanCommute', 'value'),
+     Input('Professional', 'value'),
+     Input('Service', 'value'),
+     Input('Production', 'value')])
+def predict(Unemployment, Poverty, MeanCommute, Professional, Service, Production):
 
     df = pd.DataFrame(
-        columns=['Annual Income', 'Credit Score', 'Loan Amount', 'Loan Purpose', 'Monthly Debts'], 
-        data=[[annual_income, credit_score, loan_amount, loan_purpose, monthly_debts]]
+        columns=['Unemployment', 'Poverty', 'MeanCommute', 'Professional', 'Service', 'Production'], 
+        data=[[Unemployment, Poverty, MeanCommute, Professional, Service, Production]]
     )
 
     pipeline = load('model/pipeline.joblib')
-    y_pred_log = pipeline.predict(df)
-    y_pred = np.expm1(y_pred_log)[0]
+    y_pred = pipeline.predict(df)
 
-    return f'Interest rate for 36 month loan: {y_pred:.2f}%'
+
+    return f'Median Income for Census Tract: ${y_pred:.2f}'
