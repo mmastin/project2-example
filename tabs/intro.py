@@ -7,7 +7,9 @@ from app import app
 layout = dcc.Markdown("""
 ### Intro
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit ornare dolor in venenatis. Nunc dapibus elementum ligula, sed pharetra turpis tempor vel. Pellentesque dui tellus, euismod vel libero in, volutpat pretium felis. Sed sit amet purus et tellus tincidunt finibus. Integer augue odio, pharetra at placerat ut, venenatis nec erat. Integer eu malesuada nisl. Nam vestibulum, elit quis pharetra luctus, massa nulla cursus augue, in tristique mi ipsum id nisi. Fusce fringilla tortor elit, quis lacinia est molestie id. Nullam consectetur elit at porta faucibus. In feugiat, mauris ut dignissim ultrices, odio ex viverra ante, ac pulvinar libero mauris facilisis diam. Fusce at efficitur urna, in varius nisl. Pellentesque lectus odio, pellentesque sed lacinia eu, placerat et mauris. Sed id mi at dui aliquet dapibus non nec justo.
+With the 2020 Census on the horizon, I want to dive into the predictive powers of past data gathering efforts. While the Census is an enormous effort employing hundreds of thousands of people and projected to cost $15.6 billion next year, the American Community Survey collects yearly information on a smaller scale.
 
-Phasellus sodales vehicula nisi sit amet tincidunt. Integer mattis, lacus vitae tempor congue, tellus nulla congue lectus, id facilisis enim nunc eu arcu. Suspendisse vehicula metus non urna congue, ac fringilla dolor venenatis. Nulla facilisi. Etiam ornare ipsum id massa dictum, sit amet porttitor neque vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a purus vulputate leo egestas consectetur in nec augue.
+The 2017 ACS survey provides 36 high-level data points on the 3,142 counties and county-equivalents in the United States as well as 74,000 census tracts, with an average population of 4,400. With this information I trained regression models to predict Median Income for a given area, primarily using Random Forest and XGBoost Regressor.
+
+To make your own predictions, there are 6 sliders in the 'Predict' tab to control for a few of the most predictive features: Unemployment Rate, Poverty Rate, Professional Employment(% in management, business, science or arts jobs), Services Employment(% in service jobs), Production Employment(% in production or transportation jobs), and Average Commute Time.
 """)
