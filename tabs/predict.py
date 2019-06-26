@@ -112,17 +112,17 @@ layout = html.Div([
 
 @app.callback(
     Output('prediction-content', 'children'),
-    [Input('Unemployment', 'value'),
-     Input('Poverty', 'value'),
+    [Input('Service', 'value'),
+     Input('Production', 'value'),
+     Input('Unemployment', 'value'),
      Input('MeanCommute', 'value'),
-     Input('Professional', 'value'),
-     Input('Service', 'value'),
-     Input('Production', 'value')])
-def predict(Unemployment, Poverty, MeanCommute, Professional, Service, Production):
+     Input('Poverty', 'value'),
+     Input('Professional', 'value')])
+def predict(Service, Production, Unemployment, MeanCommute, Poverty, Professional):
 
     df = pd.DataFrame(
-        columns=['Unemployment', 'Poverty', 'MeanCommute', 'Professional', 'Service', 'Production'], 
-        data=[[Unemployment, Poverty, MeanCommute, Professional, Service, Production]]
+        columns=['Service', 'Production', 'Unemployment', 'MeanCommute', 'Poverty', 'Professional'], 
+        data=[[Service, Production, Unemployment, MeanCommute, Poverty, Professional]]
     )
 
     pipeline = load('model/pipeline.joblib')
