@@ -32,6 +32,30 @@ layout = html.Div([
     """), 
 
     html.Div([
+        dcc.Markdown('###### Services Employment Rate'), 
+        dcc.Slider(
+            id='Service', 
+            min=0, 
+            max=70, 
+            step=10, 
+            value=20, 
+            marks={n: str(n) for n in range(0,70,10)}
+        )
+    ], style=style),
+    
+    html.Div([
+        dcc.Markdown('###### Production Employment Rate'), 
+        dcc.Slider(
+            id='Production', 
+            min=0, 
+            max=60, 
+            step=10, 
+            value=10, 
+            marks={n: str(n) for n in range(0,60,10)}
+        )
+    ], style=style),    
+    
+    html.Div([
         dcc.Markdown('###### Unemployment Rate'), 
         dcc.Slider(
             id='Unemployment', 
@@ -41,18 +65,6 @@ layout = html.Div([
             value=5, 
             marks={n: str(n) for n in range(0,60,5)}
         ), 
-    ], style=style), 
-
-    html.Div([
-        dcc.Markdown('###### Poverty Rate'), 
-        dcc.Slider(
-            id='Poverty', 
-            min=0,
-            max=25, 
-            step=5, 
-            value=5, 
-            marks={n: str(n) for n in range(0,25,5)}
-        ),
     ], style=style), 
 
     html.Div([
@@ -66,7 +78,21 @@ layout = html.Div([
             marks={n: str(n) for n in range(4,72,8)}
         ),  
     ], style=style),
+    
+    
+    html.Div([
+        dcc.Markdown('###### Poverty Rate'), 
+        dcc.Slider(
+            id='Poverty', 
+            min=0,
+            max=25, 
+            step=5, 
+            value=5, 
+            marks={n: str(n) for n in range(0,25,5)}
+        ),
+    ], style=style), 
 
+    
     html.Div([
         dcc.Markdown('###### Professional Employment Rate'), 
         dcc.Slider(
@@ -76,30 +102,6 @@ layout = html.Div([
             step=10, 
             value=30, 
             marks={n: str(n) for n in range(0,90,10)}
-        )
-    ], style=style),
-
-    html.Div([
-        dcc.Markdown('###### Services Employment Rate'), 
-        dcc.Slider(
-            id='Service', 
-            min=0, 
-            max=70, 
-            step=10, 
-            value=20, 
-            marks={n: str(n) for n in range(0,70,10)}
-        )
-    ], style=style),
-  
-    html.Div([
-        dcc.Markdown('###### Production Employment Rate'), 
-        dcc.Slider(
-            id='Production', 
-            min=0, 
-            max=60, 
-            step=10, 
-            value=10, 
-            marks={n: str(n) for n in range(0,60,10)}
         )
     ], style=style),
   
