@@ -1,0 +1,20 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+dash = "*"
+numpy = "*"
+pandas = "*"
+scikit-learn = "*"
+category-encoders = "*"
+xgboost = "*"
+gunicorn = "*"
+matplotlib = "*"
+seaborn = "*"
+
+[requires]
+python_version = "3.7"
