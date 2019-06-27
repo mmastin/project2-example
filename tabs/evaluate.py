@@ -9,6 +9,6 @@ layout = [dcc.Markdown("""
 
 The distribution of predictions closely matches the true distribution of incomes, with slight overpredictions around the median and underpredictions of the few high income outliers.
 
-""")
+"""),
 
 html.Img(src='/assets/randomforest.png', style={'width': '100%'})]       
