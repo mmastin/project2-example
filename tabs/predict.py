@@ -14,7 +14,7 @@ layout = html.Div([
     dcc.Markdown("""
         ### Predict
 
-        Median Income of an Area with Six Factors. 
+        Use the sliders to adjust six factors for a hypothetical Census area: 
     
     """), 
     
@@ -25,7 +25,7 @@ layout = html.Div([
         dcc.Slider(
             id='Unemployment', 
             min=0,
-            max=60,
+            max=40,
             step=5,
             value=5, 
             marks={n: str(n) for n in range(0,60,5)}
@@ -116,4 +116,4 @@ def predict(Service, Production, Unemployment, MeanCommute, Poverty, Professiona
     y_pred = pipeline.predict(df)[0]
 
 
-    return f'Median Income for Census Tract: ${y_pred:,.2f}'
+    return f'Predicted Median Income: ${y_pred:,.2f}'
