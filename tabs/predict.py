@@ -27,7 +27,7 @@ layout = html.Div([
             min=0,
             max=25,
             step=5,
-            value=5, 
+            value=20, 
             marks={n: str(n) for n in range(0,60,5)}
         ), 
     ], style=style), 
@@ -39,8 +39,8 @@ layout = html.Div([
             min=0,
             max=25, 
             step=5, 
-            value=5, 
-            marks={n: str(n) for n in range(0,25,5)}
+            value=20, 
+            marks={n: str(n) for n in range(0,30,5)}
         ),
     ], style=style), 
     
@@ -49,9 +49,9 @@ layout = html.Div([
         dcc.Slider(
             id='Professional', 
             min=0, 
-            max=90, 
+            max=80, 
             step=10, 
-            value=30, 
+            value=20, 
             marks={n: str(n) for n in range(0,90,10)}
         )
     ], style=style),    
@@ -62,7 +62,7 @@ layout = html.Div([
         dcc.Slider(
             id='Service', 
             min=0, 
-            max=70, 
+            max=60, 
             step=10, 
             value=20, 
             marks={n: str(n) for n in range(0,70,10)}
@@ -74,7 +74,7 @@ layout = html.Div([
         dcc.Slider(
             id='Production', 
             min=0, 
-            max=60, 
+            max=50, 
             step=10, 
             value=10, 
             marks={n: str(n) for n in range(0,60,10)}
@@ -90,8 +90,8 @@ layout = html.Div([
             min=4, 
             max=72, 
             step=8, 
-            value=20, 
-            marks={n: str(n) for n in range(4,72,8)}
+            value=10, 
+            marks={n: str(n) for n in range(4,76,8)}
         ),  
     ], style=style), 
 
