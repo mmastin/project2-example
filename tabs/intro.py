@@ -15,4 +15,4 @@ To make your own predictions, there are six sliders in the 'Predict' tab to cont
 
 """),
           
-html.Img(src='/assets/1950censusform.jpg', style={'width': '80%'})]
+html.Img(src='/assets/1950censusform.jpg', style={'width': '100%'})]
