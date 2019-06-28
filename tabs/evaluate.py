@@ -11,7 +11,7 @@ The distribution of predictions closely matches the true distribution of incomes
 
 Unsurprisingly, median income of an area is highly correlated with unemployment and poverty rates. High levels of Professional and Services employment greatly boost incomes. 
 
-The model predicts highest incomes for areas with an average commute time of 36 minutes, presumably reflecting the prosperity of suburbs compared to urban and rural communities.
+The model predicts highest incomes for areas with average commute times around 40 minutes, presumably reflecting the prosperity of suburbs compared to urban and rural communities.
 
 """),
 
