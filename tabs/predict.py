@@ -17,6 +17,8 @@ layout = html.Div([
         Median Income of an Area with Six Factors. 
     
     """), 
+    
+    html.Div(id='prediction-content', style={'fontWeight':'bold'}), 
 
     html.Div([
         dcc.Markdown('###### Unemployment Rate'), 
@@ -91,11 +93,7 @@ layout = html.Div([
             value=20, 
             marks={n: str(n) for n in range(4,72,8)}
         ),  
-    ], style=style),
-    
-  
-    dcc.Markdown('### Prediction'), 
-    html.Div(id='prediction-content', style={'marginBottom': '5em'}), 
+    ], style=style), 
 
 ])
 
