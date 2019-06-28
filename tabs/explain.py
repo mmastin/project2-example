@@ -15,4 +15,4 @@ The interactive prediction model is a simplified version based on some of the mo
           
 html.Img(src='/assets/model.png', style ={'width':'80%'}),
           
-html.Img(src='/assets/feature_importance.png', style={'width':'80%'})]
+html.Img(src='/assets/feature_importance_title.png', style={'width':'80%'})]
