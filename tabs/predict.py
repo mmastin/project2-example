@@ -25,7 +25,7 @@ layout = html.Div([
         dcc.Slider(
             id='Unemployment', 
             min=0,
-            max=40,
+            max=25,
             step=5,
             value=5, 
             marks={n: str(n) for n in range(0,60,5)}
