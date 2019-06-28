@@ -15,4 +15,4 @@ The model predicts highest incomes for areas with an average commute time of 36 
 
 """),
 
-html.Img(src='/assets/randomforest.png', style={'width': '100%'})]       
+html.Img(src='/assets/randomforest.png', style={'width': '80%'})]       
